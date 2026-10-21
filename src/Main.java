@@ -3,15 +3,17 @@ public class Main {
 
         VariableCompartida variableCompartida = new VariableCompartida();
 
-        Thread t1 = new Thread(new Hebra(variableCompartida));
-        Thread t2 = new Thread(new Hebra(variableCompartida));
+        Hebra h1 = new Hebra(variableCompartida);
+        Hebra h2 = new Hebra(variableCompartida);
+
+        Thread t1 = new Thread(h1);
+        Thread t2 = new Thread(h2);
 
         t1.start();
         t2.start();
         t1.join();
         t2.join();
-        System.out.println(variableCompartida.getV());
 
-        // Al incrementar pueden perderse algunos, ya que varias hebras modifican la misma variable al mismo tiempo
+        System.out.println(variableCompartida.getV());
     }
 }

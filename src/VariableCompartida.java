@@ -1,10 +1,6 @@
 public class VariableCompartida {
     private int v = 0;
 
-    public VariableCompartida() {
-        this.v = v;
-    }
-
     public int getV() {
         return v;
     }
